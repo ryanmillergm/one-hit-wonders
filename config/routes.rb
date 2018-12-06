@@ -6,4 +6,5 @@ Rails.application.routes.draw do
     resources :songs, only: [:index, :show, :destroy, :new, :create]
   end
   resources :songs, only: [:index]
+  resources :playlists, only: [:new, :create, :show]
 end
