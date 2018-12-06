@@ -3,11 +3,12 @@ require 'rails_helper'
 describe 'song index page' do
   describe 'as a visitor' do
     it 'shows all song data' do
-      song_1 = Song.create(title: "Don't Stop Believin'", length: 100, play_count: 0)
-      song_2 = Song.create(title: "Sal is Awesome", length: 200, play_count: 0)
-      song_3 = Song.create(title: "Ellen Mary is Amazing", length: 200, play_count: 0)
+      artist = Artist.create(name: "Journey")
+      song_1 = Song.create(title: "Don't Stop Believin'", length: 100, play_count: 0, artist: artist)
+      song_2 = Song.create(title: "Sal is Awesome", length: 200, play_count: 0, artist: artist)
+      song_3 = Song.create(title: "Ellen Mary is Amazing", length: 200, play_count: 0, artist: artist)
 
-      visit songs_path 
+      visit songs_path
 
       expect(page).to have_content(song_1.title)
       expect(page).to have_content("Length: #{song_1.length}")
