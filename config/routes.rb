@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
+  resources :carts, only: [:create]
+
   namespace :admin do
     resources :categories, only: [:index]
   end
